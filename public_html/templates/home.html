@@ -1,0 +1,28 @@
+<ion-view title="Home" id="page1">
+    <ion-content padding="true" class="has-header">
+        <h4 id="home-heading1" style="color:#000000;">Prueba:</h4>
+        <form id="home-form3" class="list">
+            <label class="item item-input" id="home-input4">
+                <span class="input-label">Expresión LaTex/MathAscii:</span>
+                <input type="text" placeholder="" ng-model="mathAscii.input">
+            </label>
+            <div class="spacer" style="width: 300px; height: 25px;"></div>
+            <label class="item item-input" id="home-textarea2">
+                <span mathjax-bind="mathAscii.input"></span>
+            </label>
+
+
+            <!--Cuando $a \ne 0$, hay dos soluciones para \(ax^2 + bx + c = 0\) y ellas son
+             $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
+             $$({x^3+4})^6 $$
+            Ejemplo en MathAscii:`
+             `sum_(i=1)^n i^3=((n(n+1))/2)^6`
+             `lim_(N->oo) sum_(i=0)^N`-->
+        </form>
+        <ul>
+            <li style="color: red;"><u>Ayuda: </u></li>
+            <li>En <b>LaTex</b>: Envuelva su formula entre signo \$</li>
+            <li>En <b>MathAscii</b>: Envuelva su formula entre signo `</li>
+        </ul>
+    </ion-content>
+</ion-view>
