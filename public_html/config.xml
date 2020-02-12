@@ -72,7 +72,7 @@
     <plugin name="cordova-plugin-splashscreen" source="npm"/>
     <plugin name="cordova-plugin-fcm-with-dependecy-updated" source="npm"/>
     <plugin spec="https://github.com/katzer/cordova-plugin-local-notifications.git" />
-    <gap:plugin name="onesignal-cordova-plugin" spec="^2.4.1" source="npm" />
+    <!--<gap:plugin name="onesignal-cordova-plugin" spec="^2.4.1" source="npm" />-->
     
     
     
