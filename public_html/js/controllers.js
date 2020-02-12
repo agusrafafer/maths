@@ -14,29 +14,43 @@ angular.module('app.controllers', [])
                 };
 
                 $ionicPlatform.ready(function () {
-                    FCMPlugin.onNotification(function (data) {
-                        if (data.wasTapped) {
-                            //Notification was received on device tray and tapped by the user.
-                            $cordovaLocalNotification.schedule({
+                    var notificationOpenedCallback = function (jsonData) {
+                        $cordovaLocalNotification.schedule({
                                     id: 1,
                                     title: 'Notificacion tocada',
-                                    text: JSON.stringify(data)
+                                    text: JSON.stringify(jsonData)
                                 }).then(function (result) {
                                     //console.log(result);
                                 });
-                            //alert(JSON.stringify(data));
-                        } else {
-                            //Notification was received in foreground. Maybe the user needs to be notified.
-                            //alert(JSON.stringify(data));
-                            $cordovaLocalNotification.schedule({
-                                    id: 2,
-                                    title: 'Notificacion NO tocada',
-                                    text: JSON.stringify(data)
-                                }).then(function (result) {
-                                    //console.log(result);
-                                });
-                        }
-                    });
+                    };
+
+                    window.plugins.OneSignal
+                            .startInit("143a91de-c5be-4d32-80e8-519d890c7ec7")
+                            .handleNotificationOpened(notificationOpenedCallback)
+                            .endInit();
+//                    FCMPlugin.onNotification(function (data) {
+//                        if (data.wasTapped) {
+//                            //Notification was received on device tray and tapped by the user.
+//                            $cordovaLocalNotification.schedule({
+//                                    id: 1,
+//                                    title: 'Notificacion tocada',
+//                                    text: JSON.stringify(data)
+//                                }).then(function (result) {
+//                                    //console.log(result);
+//                                });
+//                            //alert(JSON.stringify(data));
+//                        } else {
+//                            //Notification was received in foreground. Maybe the user needs to be notified.
+//                            //alert(JSON.stringify(data));
+//                            $cordovaLocalNotification.schedule({
+//                                    id: 2,
+//                                    title: 'Notificacion NO tocada',
+//                                    text: JSON.stringify(data)
+//                                }).then(function (result) {
+//                                    //console.log(result);
+//                                });
+//                        }
+//                    });
                 });
 
             }])
