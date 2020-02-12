@@ -25,7 +25,7 @@ angular.module('app.controllers', [])
                     };
 
                     window.plugins.OneSignal
-                            .startInit("143a91de-c5be-4d32-80e8-519d890c7ec7")
+                            .startInit("2a8b7162-a65d-425d-817d-79f674159d2c")
                             .handleNotificationOpened(notificationOpenedCallback)
                             .endInit();
 //                    FCMPlugin.onNotification(function (data) {
