@@ -14,20 +14,6 @@ angular.module('app.controllers', [])
                 };
 
                 $ionicPlatform.ready(function () {
-//                    var notificationOpenedCallback = function (jsonData) {
-//                        $cordovaLocalNotification.schedule({
-//                                    id: 1,
-//                                    title: 'Notificacion tocada',
-//                                    text: JSON.stringify(jsonData)
-//                                }).then(function (result) {
-//                                    //console.log(result);
-//                                });
-//                    };
-//
-//                    window.plugins.OneSignal
-//                            .startInit("2a8b7162-a65d-425d-817d-79f674159d2c")
-//                            .handleNotificationOpened(notificationOpenedCallback)
-//                            .endInit();
                     FCMPlugin.onNotification(function (data) {
                         if (data.wasTapped) {
                             //Notification was received on device tray and tapped by the user.
@@ -52,13 +38,17 @@ angular.module('app.controllers', [])
                         }
                     });
 
+                    
+                });
+                
+                $scope.obtenerToken = function() {
                     FCMPlugin.getToken(function (token) {
                         $ionicPopup.alert({
                             title: 'Token',
                             template: token
                         });
                     });
-                });
+                };
 
             }])
 
@@ -68,5 +58,5 @@ angular.module('app.controllers', [])
             function ($scope, $stateParams) {
 
 
-            }])
+            }]);
  
