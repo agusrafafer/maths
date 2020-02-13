@@ -1,9 +1,9 @@
 angular.module('app.controllers', [])
 
-        .controller('homeCtrl', ['$scope', '$stateParams', '$rootScope', '$ionicPlatform', '$cordovaLocalNotification', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+        .controller('homeCtrl', ['$scope', '$stateParams', '$rootScope', '$ionicPlatform', '$cordovaLocalNotification', '$ionicPopup',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-            function ($scope, $stateParams, $rootScope, $ionicPlatform, $cordovaLocalNotification) {
+            function ($scope, $stateParams, $rootScope, $ionicPlatform, $cordovaLocalNotification, $ionicPopup) {
 //                $rootScope.$watch(function () {
 //                    MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
 //                    return true;
@@ -32,24 +32,31 @@ angular.module('app.controllers', [])
                         if (data.wasTapped) {
                             //Notification was received on device tray and tapped by the user.
                             $cordovaLocalNotification.schedule({
-                                    id: 1,
-                                    title: 'Notificacion tocada',
-                                    text: JSON.stringify(data)
-                                }).then(function (result) {
-                                    //console.log(result);
-                                });
+                                id: 1,
+                                title: 'Notificacion tocada',
+                                text: JSON.stringify(data)
+                            }).then(function (result) {
+                                //console.log(result);
+                            });
                             //alert(JSON.stringify(data));
                         } else {
                             //Notification was received in foreground. Maybe the user needs to be notified.
                             //alert(JSON.stringify(data));
                             $cordovaLocalNotification.schedule({
-                                    id: 2,
-                                    title: 'Notificacion NO tocada',
-                                    text: JSON.stringify(data)
-                                }).then(function (result) {
-                                    //console.log(result);
-                                });
+                                id: 2,
+                                title: 'Notificacion NO tocada',
+                                text: JSON.stringify(data)
+                            }).then(function (result) {
+                                //console.log(result);
+                            });
                         }
+                    });
+
+                    FCMPlugin.getToken(function (token) {
+                        $ionicPopup.alert({
+                            title: 'Token',
+                            template: token
+                        });
                     });
                 });
 
