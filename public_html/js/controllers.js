@@ -1,6 +1,6 @@
 angular.module('app.controllers', [])
 
-        .controller('homeCtrl', ['$scope', '$stateParams', '$rootScope', '$ionicPlatform', '$cordovaLocalNotification', '$ionicPopup',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+        .controller('homeCtrl', ['$scope', '$stateParams', '$rootScope', '$ionicPlatform', '$cordovaLocalNotification', '$ionicPopup', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
             function ($scope, $stateParams, $rootScope, $ionicPlatform, $cordovaLocalNotification, $ionicPopup) {
@@ -14,6 +14,13 @@ angular.module('app.controllers', [])
                 };
 
                 $ionicPlatform.ready(function () {
+                    FCMPlugin.onTokenRefresh(function (token) {
+                        $ionicPopup.alert({
+                            title: 'Token',
+                            template: token
+                        });
+                    });
+
                     FCMPlugin.onNotification(function (data) {
                         if (data.wasTapped) {
                             //Notification was received on device tray and tapped by the user.
@@ -38,10 +45,10 @@ angular.module('app.controllers', [])
                         }
                     });
 
-                    
+
                 });
-                
-                $scope.obtenerToken = function() {
+
+                $scope.obtenerToken = function () {
                     FCMPlugin.getToken(function (token) {
                         $ionicPopup.alert({
                             title: 'Token',
