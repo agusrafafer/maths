@@ -23,9 +23,9 @@ angular.module('app.routes', [])
     url: '/side-menu21',
     templateUrl: 'templates/menu.html',
     controller: 'menuCtrl'
-  })
+  });
 
-$urlRouterProvider.otherwise('/side-menu21/page1')
+$urlRouterProvider.otherwise('/side-menu21/page1');
 
 
 });

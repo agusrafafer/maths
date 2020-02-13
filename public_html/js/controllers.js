@@ -1,13 +1,7 @@
 angular.module('app.controllers', [])
 
-        .controller('homeCtrl', ['$scope', '$stateParams', '$rootScope', '$ionicPlatform', '$cordovaLocalNotification', '$ionicPopup', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
-            function ($scope, $stateParams, $rootScope, $ionicPlatform, $cordovaLocalNotification, $ionicPopup) {
-//                $rootScope.$watch(function () {
-//                    MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-//                    return true;
-//                });
+        .controller('homeCtrl', ['$scope', '$stateParams', '$rootScope', '$ionicPlatform', '$cordovaLocalNotification', '$ionicPopup', 
+                        function ($scope, $stateParams, $rootScope, $ionicPlatform, $cordovaLocalNotification, $ionicPopup) {
 
                 $scope.mathAscii = {
                     input: ""
@@ -18,12 +12,6 @@ angular.module('app.controllers', [])
                 };
 
                 $ionicPlatform.ready(function () {
-//                    FCMPlugin.onTokenRefresh(function (token) {
-//                        $ionicPopup.alert({
-//                            title: 'Token',
-//                            template: token
-//                        });
-//                    });
 
                     FCMPlugin.onNotification(function (data) {
                         if (data.wasTapped) {
@@ -72,11 +60,11 @@ angular.module('app.controllers', [])
 
             }])
 
-        .controller('menuCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
+        .controller('menuCtrl', ['$scope', '$stateParams', 
             function ($scope, $stateParams) {
-
+                $scope.var = {
+                    prueba: ""
+                };
 
             }]);
  
