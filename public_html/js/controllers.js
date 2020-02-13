@@ -18,12 +18,12 @@ angular.module('app.controllers', [])
                 };
 
                 $ionicPlatform.ready(function () {
-                    FCMPlugin.onTokenRefresh(function (token) {
-                        $ionicPopup.alert({
-                            title: 'Token',
-                            template: token
-                        });
-                    });
+//                    FCMPlugin.onTokenRefresh(function (token) {
+//                        $ionicPopup.alert({
+//                            title: 'Token',
+//                            template: token
+//                        });
+//                    });
 
                     FCMPlugin.onNotification(function (data) {
                         if (data.wasTapped) {
