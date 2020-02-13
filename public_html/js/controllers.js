@@ -13,6 +13,10 @@ angular.module('app.controllers', [])
                     input: ""
                 };
 
+                $scope.var = {
+                    tokenFcm: ""
+                };
+
                 $ionicPlatform.ready(function () {
                     FCMPlugin.onTokenRefresh(function (token) {
                         $ionicPopup.alert({
@@ -49,12 +53,21 @@ angular.module('app.controllers', [])
                 });
 
                 $scope.obtenerToken = function () {
-                    FCMPlugin.getToken(function (token) {
-                        $ionicPopup.alert({
-                            title: 'Token',
-                            template: token
+                    try {
+                        FCMPlugin.getToken(function (token) {
+                            $ionicPopup.alert({
+                                title: 'Token',
+                                template: token
+                            });
+                            $scope.var.tokenFcm = token;
                         });
-                    });
+                    } catch (e) {
+                        $ionicPopup.alert({
+                            title: 'Token Error',
+                            template: 'Excepcion: ' + e
+                        });
+                        $scope.var.tokenFcm = e;
+                    }
                 };
 
             }])
