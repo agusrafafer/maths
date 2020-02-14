@@ -89,7 +89,7 @@
     <icon src="xhdpi.png" platform="android" qualifier="xhdpi" />
     <icon src="xxhdpi.png" platform="android" qualifier="xxhdpi" />
     
-    <gap:splash src="splash-hdpi.png" />
+    <!--<gap:splash src="splash-hdpi.png" />
     
     
     <splash src="splash-ldpi.png" platform="android" qualifier="ldpi" />
