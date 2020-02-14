@@ -43,10 +43,10 @@ angular.module('app.controllers', [])
                 $scope.obtenerToken = function () {
                     try {
                         FCMPlugin.getToken(function (token) {
-                            $ionicPopup.alert({
-                                title: 'Token',
-                                template: token
-                            });
+//                            $ionicPopup.alert({
+//                                title: 'Token',
+//                                template: token
+//                            });
                             $scope.var.tokenFcm = token;
                         });
                     } catch (e) {

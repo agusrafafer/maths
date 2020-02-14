@@ -1,22 +1,17 @@
 <ion-view title="Home" id="page1">
     <ion-content padding="true" class="has-header">
         <h4 id="home-heading1" style="color:#000000;">Prueba:</h4>
-        <!--<form id="home-form3" class="list">
-            <label class="item item-input" id="home-input4">
-                <span class="input-label">Expresión LaTex/MathAscii:</span>
-                <input type="text" placeholder="" ng-model="mathAscii.input">
-            </label>
-            <div class="spacer" style="width: 300px; height: 25px;"></div>
-            <label class="item item-input" id="home-textarea2">
-                <span mathjax-bind="mathAscii.input"></span>
-            </label>
-        </form>-->
-        <ul ng-controller="homeCtrl">
-            <li style="color: red;"><u>Ayuda: </u></li>
-            <li>En <b>LaTex</b>: Envuelva su formula entre signo \$</li>
-            <li>En <b>MathAscii</b>: Envuelva su formula entre signo `</li>
-            <li><a ng-click="obtenerToken()" class="button button-positive button-block">Ver token</a></li>
-            <li><input type="text" placeholder="Token" ng-model="var.tokenFcm"></li>
-        </ul>
+        <form id="login-form1" class="list">
+            <ion-list id="login-list2">
+                <label class="item item-input" id="login-input1">
+                    <span class="input-label">Token: </span>
+                    <input type="text" placeholder="Token" ng-model="var.tokenFcm">
+                </label>
+            </ion-list>
+            <div class="spacer" style="height: 40px;"></div>
+            <a ng-click="obtenerToken()" class="button button-positive button-block">Ver token</a>
+            <!--<a ui-sref="menu.home()" id="login-button1" class="button button-stable button-block">Log in</a>
+            <a ng-click="recuperarClave()" id="login-button2" class="button button-positive button-block button-clear">Olvide mi contrase&ntilde;a</a>-->
+        </form>
     </ion-content>
 </ion-view>
