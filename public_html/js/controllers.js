@@ -15,6 +15,7 @@ angular.module('app.controllers', [])
 
                     FCMPlugin.onNotification(function (data) {
                         if (data.wasTapped) {
+                            alert(JSON.stringify(data));
                             //Notification was received on device tray and tapped by the user.
 //                            $cordovaLocalNotification.schedule({
 //                                id: 1,
