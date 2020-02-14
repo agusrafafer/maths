@@ -56,7 +56,10 @@
         <resource-file src="google-services.json" target="app/google-services.json" />
         <resource-file src="network_security_config.xml" target="app/src/main/res/xml/network_security_config.xml" />
         
-        
+        <edit-config xmlns:android="http://schemas.android.com/apk/res/android" 
+                     file="AndroidManifest.xml" mode="merge" target="/manifest/application">
+            <meta-data android:name="com.google.firebase.messaging.default_notification_icon" android:resource="@drawable/mdpi" />
+        </edit-config>
         
     </platform>
     <platform name="ios">
