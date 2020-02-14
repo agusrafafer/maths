@@ -16,24 +16,24 @@ angular.module('app.controllers', [])
                     FCMPlugin.onNotification(function (data) {
                         if (data.wasTapped) {
                             //Notification was received on device tray and tapped by the user.
-                            $cordovaLocalNotification.schedule({
-                                id: 1,
-                                title: 'Notificacion tocada',
-                                text: JSON.stringify(data)
-                            }).then(function (result) {
-                                //console.log(result);
-                            });
+//                            $cordovaLocalNotification.schedule({
+//                                id: 1,
+//                                title: 'Notificacion tocada',
+//                                text: JSON.stringify(data)
+//                            }).then(function (result) {
+//                                //console.log(result);
+//                            });
                             //alert(JSON.stringify(data));
                         } else {
                             //Notification was received in foreground. Maybe the user needs to be notified.
                             //alert(JSON.stringify(data));
-                            $cordovaLocalNotification.schedule({
-                                id: 2,
-                                title: 'Notificacion NO tocada',
-                                text: JSON.stringify(data)
-                            }).then(function (result) {
-                                //console.log(result);
-                            });
+//                            $cordovaLocalNotification.schedule({
+//                                id: 2,
+//                                title: 'Notificacion NO tocada',
+//                                text: JSON.stringify(data)
+//                            }).then(function (result) {
+//                                //console.log(result);
+//                            });
                         }
                     });
 
