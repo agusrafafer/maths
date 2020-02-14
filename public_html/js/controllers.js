@@ -57,6 +57,9 @@ angular.module('app.controllers', [])
                 });
 
                 $scope.obtenerToken = function () {
+                    cordova.plugins.firebase.messaging.getToken().then(function (token) {
+                        $scope.var.tokenFcm = token;
+                    });
 //                    try {
 //                        FCMPlugin.getToken(function (token) {
 ////                            $ionicPopup.alert({
